@@ -14,7 +14,19 @@ import { MatListModule} from '@angular/material/list';
 import { ManagebooksComponent } from './pages/managebooks/managebooks.component';
 import { IssueboksComponent } from './pages/issueboks/issueboks.component';
 import { IssuedboksComponent } from './pages/issuedboks/issuedboks.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [
+  {path: "home", component: HomeComponent,
+    children: [
+      {path: "addbooks", component: AddbooksComponent},
+      {path: "managebooks", component: ManagebooksComponent},
+      {path: "issuebooks", component: IssueboksComponent},
+      {path: "issuedbooks", component: IssuedboksComponent},  
+    ]
+  },
+  {path: "**", redirectTo:"home"}
+]
 
 @NgModule({
   declarations: [
@@ -34,6 +46,7 @@ import { IssuedboksComponent } from './pages/issuedboks/issuedboks.component';
     MatToolbarModule,
     MatListModule,
     MatButtonModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

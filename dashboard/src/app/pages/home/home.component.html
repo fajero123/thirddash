@@ -1,1 +1,44 @@
-<p>home works!</p>
+
+  <mat-toolbar color="primary">
+    <button><mat-icon (click)="sidenav.toggle()">menu</mat-icon></button>
+    <span>Library Mangement System</span>   
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav  #sidenav opened ="false" mode="side" > 
+      <mat-list class="list">
+       
+        <mat-list-item> 
+            <mat-icon class="icon">home</mat-icon>
+            <a routerLink="home" routerLinkActive="active">Dashboard</a>
+        </mat-list-item>
+        
+        <mat-list-item> 
+            <mat-icon class="icon">person</mat-icon>
+            <a routerLink="addbooks" routerLinkActive="active">Add Books</a>
+        </mat-list-item>
+       
+        <mat-list-item>
+            <mat-icon class="icon">image</mat-icon>
+            <a routerLink="managebooks" routerLinkActive="active">Manage Books</a>
+        </mat-list-item>
+       
+        <mat-list-item> 
+            <mat-icon class="icon">phone</mat-icon>
+            <a routerLink="issuebooks" routerLinkActive="active">Issue Books</a>
+        </mat-list-item>
+  
+        <mat-list-item> 
+          <mat-icon class="icon">phone</mat-icon>
+          <a routerLink="issuedbooks" routerLinkActive="active">Issued Book</a></mat-list-item>
+    </mat-list>
+      
+      
+  
+  
+  
+    </mat-sidenav>
+    <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  
